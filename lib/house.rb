@@ -30,6 +30,26 @@ class House
     @rooms.each do |room|
       total_area += room.area
     end
-    total_area
+    total_area.to_f
   end
+
+  def price_per_square_foot
+    rooms_area = area
+    (@price / rooms_area).to_f.round(2)
+  end
+
+  def rooms_sorted_by_area
+    @rooms.sort_by do |room|
+      room.area
+    end.reverse
+  end
+
+  def rooms_by_category
+    room_details = Hash.new { |h, k| h[k] = [] }
+    @rooms.map do |room|
+      room_details[room.category] << room
+    end
+    room_details
+  end
+  
 end
