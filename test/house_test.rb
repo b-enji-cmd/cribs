@@ -53,6 +53,7 @@ class HouseTest < Minitest::Test
   end
 
   def test_house_details
-
+    expected = {"price" => 400000, "address" => "123 sugar lane"}
+    assert_equal expected, @house.details
   end
 end
